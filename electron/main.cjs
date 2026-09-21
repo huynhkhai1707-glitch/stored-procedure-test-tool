@@ -26,7 +26,7 @@ function createWindow() {
 }
 
 function setupAutoUpdater() {
-  // Không tự tải: luôn hỏi lựa chọn của người dùng trước.
+  // Không tự động tải: luôn hỏi người dùng trước.
   autoUpdater.autoDownload = false;
 
   autoUpdater.on("update-available", async () => {
@@ -50,7 +50,7 @@ function setupAutoUpdater() {
       type: "info",
       title: "Đã tải xong bản cập nhật",
       message: "Bản cập nhật đã sẵn sàng.",
-      detail: "Ứng dụng sẽ đóng, cài bản mới và khởi động lại.",
+      detail: "Bạn có muốn cài đặt và khởi động lại ứng dụng không?",
       buttons: ["Cập nhật và khởi động lại", "Để sau"],
       defaultId: 0,
       cancelId: 1,
@@ -62,7 +62,7 @@ function setupAutoUpdater() {
   });
 
   autoUpdater.on("error", (error) => {
-    console.error("Không thể kiểm tra hoặc tải bản cập nhật:", error);
+    console.error("Lỗi kiểm tra cập nhật:", error);
   });
 
   autoUpdater.checkForUpdates();
@@ -71,7 +71,7 @@ function setupAutoUpdater() {
 app.whenReady().then(() => {
   createWindow();
 
-  // Chỉ kiểm tra cập nhật trong ứng dụng đã được đóng gói.
+  // Chỉ kiểm tra cập nhật trong bản .exe đã cài đặt.
   if (!isDev) {
     setupAutoUpdater();
   }
