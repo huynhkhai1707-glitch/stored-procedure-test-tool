@@ -1,7 +1,7 @@
 {
   "name": "stored-procedure-test-tool",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "electron/main.cjs",
   "type": "module",
   "scripts": {
@@ -32,7 +32,7 @@
     "appId": "com.huynhkhai1707.storedproceduretesttool",
     "productName": "Stored Procedure Test Tool",
     "directories": {
-      "output": "release"
+      "output": "safe-build"
     },
     "files": [
       "dist/**/*",
